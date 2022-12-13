@@ -4,7 +4,6 @@ import java.util.List;
 
 public class HotDrinksVMachine implements VendingMachine {
     List<HotDrink> hotDrinks;
-    List<HotDrink> hotDrinksBuy;
 
     public HotDrinksVMachine(List<HotDrink> hotDrinks) {
         this.hotDrinks = hotDrinks;

@@ -1,37 +1,13 @@
 package com.oop_hw;
 
-import java.util.List;
+public interface VendingMachine {
 
-public class VendingMachine {
-    private List<Product> products;
+    public abstract Product getProduct(int position, double volume, int temperature);
 
-    public VendingMachine(List<Product> products) {
-        this.products = products;
-    }
+    public abstract void fullPrice();
 
-    public Product getProductByPos(int position) {
-        for (Product product : products) {
-            if (position == product.getPosition()) {
-                return product;
-            }
-        }
-        throw new IllegalStateException("Такого товара нет!");
-    }
-
-    public void fullPrice() {
-
-    }
-
-    public void getMoney() {
-
-    }
-
-    public void giveProduct() {
-
-    }
+    public abstract void getMoney();
 
     @Override
-    public String toString() {
-        return "Список продуктов: " + products;
-    }
+    public abstract String toString();
 }

@@ -34,7 +34,7 @@ public class Main {
             System.out.println(listIterator.next());
         }
 
-        System.out.println("----------");
+        System.out.println("----------\n");
 
         System.out.println("В обратном направлении (GroupListIterator):\n");
         while (listIterator.hasPrevious()) {

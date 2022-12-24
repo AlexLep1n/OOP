@@ -1,49 +1,45 @@
 import java.util.ListIterator;
 
 public class GroupListIterator implements ListIterator<Student> {
-    private int index = -1;
-    // private int index = index - 1;
+    private int indexNext;
+    private int indexPrev;
     private StudentGroup students;
 
     public GroupListIterator(StudentGroup students) {
         this.students = students;
+        this.indexNext = -1;
+        this.indexPrev = students.size() - 1;
+
     }
 
     @Override
     public boolean hasNext() {
-        return index < students.size() - 1;
+        return indexNext < students.size() - 1;
     }
 
     @Override
     public Student next() {
-        index++;
-        return students.get(index);
+        return students.get(nextIndex());
     }
 
     @Override
     public boolean hasPrevious() {
-        return index < students.size() + 1 - index;
+        return indexPrev >= 0;
     }
 
     @Override
     public Student previous() {
-        index++;
-        if (index < 0) {
-            index = 0;
-            return students.get(students.size() - 1 - index);
-        } else {
-            return students.get(students.size() - 1 - index);
-        }
+        return students.get(previousIndex());
     }
 
     @Override
     public int nextIndex() {
-        return index++;
+        return ++indexNext;
     }
 
     @Override
     public int previousIndex() {
-        return index++;
+        return indexPrev--;
     }
 
     @Override

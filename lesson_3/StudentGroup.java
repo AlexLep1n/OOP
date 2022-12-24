@@ -1,6 +1,5 @@
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class StudentGroup implements Iterable<Student> {
     private List<Student> students;
@@ -22,7 +21,11 @@ public class StudentGroup implements Iterable<Student> {
         return new StudentGroupIterator(this);
     }
 
-    public ListIterator<Student> listIterator() {
+    public GroupListIterator listIterator() {
         return new GroupListIterator(this);
+    }
+
+    public ReverseIterator descendingIterator() {
+        return new ReverseIterator(this);
     }
 }

@@ -1,8 +1,8 @@
 import java.util.Iterator;
 
 public class StudentGroupIterator implements Iterator<Student> {
-    protected int index = -1;
-    protected StudentGroup students;
+    private int index = -1;
+    private StudentGroup students;
 
     public StudentGroupIterator(StudentGroup students) {
         this.students = students;

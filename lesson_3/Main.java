@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 // 1. Класс Группа содержит в себе коллекцию Студентов. По группе можно перемещаться с помощью итератора. (Это повторяет 1-ю задачу из классной работы). Остальные задачи надстраиваются поверх неё.
 
@@ -29,11 +28,25 @@ public class Main {
 
         StudentGroup studentGroup = new StudentGroup(students);
 
-        ListIterator<Student> listIterator = studentGroup.listIterator();
+        GroupListIterator listIterator = studentGroup.listIterator();
+        System.out.println("По направлению вперед (GroupListIterator):\n");
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+
+        System.out.println("----------");
+
+        System.out.println("В обратном направлении (GroupListIterator):\n");
         while (listIterator.hasPrevious()) {
-            // System.out.println(listIterator.next());
             System.out.println(listIterator.previous());
         }
 
+        System.out.println("----------\n");
+
+        System.out.println("В обратном направлении (ReverseIterator):\n");
+        ReverseIterator reverseIterator = studentGroup.descendingIterator();
+        while (reverseIterator.hasNext()) {
+            System.out.println(reverseIterator.next());
+        }
     }
 }

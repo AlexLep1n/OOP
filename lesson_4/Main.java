@@ -97,7 +97,7 @@ public class Main {
         System.out.println(
                 "Возращаемая коллекция после фильтрации строки, начинающейся на букву слова, переданного в конструктор:\n"
                         + filter(lStrings2, beginsWithG));
-        System.out.println("\n--------\n");
+        System.out.println("\n");
 
     }
 

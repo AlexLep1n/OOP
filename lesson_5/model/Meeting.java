@@ -1,3 +1,5 @@
+package model;
+
 public class Meeting<LocalDate, Boolean> {
     private LocalDate date;
     private Boolean attendance;

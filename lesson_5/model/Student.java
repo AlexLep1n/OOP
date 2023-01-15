@@ -1,3 +1,4 @@
+package model;
 
 public class Student {
     private String name;
@@ -47,7 +48,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return name + ", " + groupName + ", " + age + ", " + gender + ", " + percent;
+        return name + ", " + groupName + ", " + age + ", " + gender + ", " + percent + "%";
     }
 
 }

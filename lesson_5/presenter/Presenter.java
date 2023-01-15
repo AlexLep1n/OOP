@@ -1,4 +1,4 @@
-package MVP;
+package presenter;
 
 public class Presenter {
 

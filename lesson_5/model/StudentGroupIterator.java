@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Iterator;
 
 public class StudentGroupIterator implements Iterator<Student> {

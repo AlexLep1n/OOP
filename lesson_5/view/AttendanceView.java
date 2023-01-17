@@ -5,13 +5,13 @@ import java.util.Scanner;
 import model.AttendanceService;
 
 public class AttendanceView {
-    AttendanceService attendanceService;
+    AttendanceService model;
 
-    public AttendanceView(AttendanceService attendanceService) {
-        this.attendanceService = attendanceService;
+    public AttendanceView(AttendanceService model) {
+        this.model = model;
     }
 
-    public void getValue() {
+    public void print() {
         System.out.println("\nВыберите необходимое действие:\n");
         System.out.println("1 - Распечатать всех студентов и посещаемость каждого в процентах.");
         System.out.println("2 - Распечатать студентов, отсортировав их по убыванию посещаемости.");
@@ -23,20 +23,19 @@ public class AttendanceView {
         while (!flag) {
             switch (value) {
                 case 1:
-                    System.out.println("Список студентов с посещаемостью в процентах:\n");
-                    attendanceService.setPercentTGroup();
+                    System.out.println("\nСписок студентов с посещаемостью в процентах:\n");
+                    model.setPercentTGroup();
                     break;
                 case 2:
-                    System.out.println("Список студентов отсортированный по убыванию:\n");
-                    attendanceService.sort();
+                    System.out.println("\nСписок студентов отсортированный по убыванию:\n");
+                    model.sort();
                     break;
                 case 3:
-                    System.out.println("Список студентов с посещаемостью ниже 25%:\n");
-                    attendanceService.lessThan25Per();
+                    System.out.println("\nСписок студентов с посещаемостью ниже 25%:\n");
+                    model.lessThan25Per();
                     break;
             }
-
-            getValue();
+            print();
         }
         scanner.close();
     }

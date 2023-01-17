@@ -51,10 +51,9 @@ public class AttendanceService {
                 for (int i = 0; i < studentGroup.size() - 1; i++) {
                     Student cur = studentGroup.students.get(i);
                     Student next = studentGroup.students.get(i + 1);
-                    if (studentGroup.students.get(i).getPercent() < studentGroup.students.get(i + 1).getPercent()) {
+                    if (cur.getPercent() < next.getPercent()) {
                         studentGroup.students.set(i, next);
                         studentGroup.students.set(i + 1, cur);
-
                     }
                 }
             }

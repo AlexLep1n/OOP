@@ -22,22 +22,6 @@ public class Student {
         this.percent = percent;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
     public Double getPercent() {
         return percent;
     }

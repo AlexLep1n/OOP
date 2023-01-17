@@ -1,9 +1,14 @@
-package model;
+package presenter;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.AttendanceService;
+import model.Meeting;
+import model.MeetingList;
+import model.Student;
+import model.StudentGroup;
 import view.AttendanceView;
 
 // Напишите программу, позволяющую анализировать посещаемость студентов. Используйте паттерн MVP.
@@ -63,16 +68,10 @@ public class Main {
         meetingLists.add(meetingListOlga);
         meetingLists.add(meetingListIvan);
 
-        AttendanceService attendanceService = new AttendanceService(studentGroup, meetingLists);
-        // AttendanceService controller = new AttendanceService(studentGroup,
-        // meetingLists);
-        // controller.setPercentTGroup();
-        // // controller.show();
-        // System.out.println("\n----------\n");
-        // controller.sort();
-        // System.out.println("\n----------\n");
-        // controller.lessThan25Per();
-        AttendanceView attendanceView = new AttendanceView(attendanceService);
-        attendanceView.getValue();
+        AttendanceService model = new AttendanceService(studentGroup, meetingLists);
+        AttendanceView view = new AttendanceView(model);
+        Presenter presenter = new Presenter(view, model);
+        presenter.start();
+
     }
 }

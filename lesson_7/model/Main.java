@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /*
@@ -27,8 +27,38 @@ import java.util.List;
 */
 public class Main {
     public static void main(String[] args) {
-        Contact vkContact = new VK(null, "Паша Техник");
-        System.out.println(vkContact);
+        CounterAgent Alex = new CounterAgent("Alex", new LinkedList<>(List.of(new PhoneNumber("Phone", "89118887766"),
+                new Address("Address", "Green street 1/1"), new VK("VK", "@id102425"))));
+        CounterAgent John = new CounterAgent("John",
+                new LinkedList<>(
+                        List.of(new PhoneNumber("Phone", "89112222222"), new Address("Address", "Yellow street 22/2"),
+                                new VK("VK", "@id777777"), new Telegram("Telegram", "@jonh"))));
+        CounterAgent Maks = new CounterAgent("Maks",
+                new LinkedList<>(
+                        List.of(new PhoneNumber("Phone", "89113333333"), new Address("Address", "Black street 33/3"),
+                                new VK("VK", "@id6585849"), new Email("Email", "maks3@gmail.com"))));
+
+        List<CounterAgent> agentsList = new LinkedList<>();
+        agentsList.add(Alex);
+        agentsList.add(John);
+        agentsList.add(Maks);
+
+        Model model = new Model(agentsList);
+        model.show();
+        System.out.println();
+        model.addAgent("Frank");
+        // System.out.println(model.findAgent("Frank").getContacts().add(new
+        // PhoneNumber("Phone", "1125125")));
+        // model.show();
+        // System.out.println();
+        // model.removeAgent("Frank");
+        // model.show();
+        // System.out.println();
+        // System.out.println(model.findAgent("Maks"));
+        // CounterAgent cA = model.findAgent("Maks");
+        // model.show();
+        model.addContact();
+        System.out.println(model.findAgent("Frank"));
 
     }
 }

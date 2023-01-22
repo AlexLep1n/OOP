@@ -3,12 +3,12 @@ package model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class VK implements Contact<String> {
+public class Email implements Contact<String> {
     private String contactLabel;
     private List<String> contactList = new LinkedList<>();
     private String contactData;
 
-    public VK(String contactLabel, String contactData) {
+    public Email(String contactLabel, String contactData) {
         this.contactLabel = contactLabel;
         this.contactData = contactData;
         contactList.add(contactData);

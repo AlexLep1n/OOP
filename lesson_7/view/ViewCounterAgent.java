@@ -45,7 +45,7 @@ public class ViewCounterAgent {
             }
             flag = true;
         }
-        print();
+        // print();
         viewScanner.close();
     }
 

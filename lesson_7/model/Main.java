@@ -72,8 +72,8 @@ public class Main {
                 // model.removeContact();
                 // System.out.println(model.findAgent("Alex"));
                 // model.findAgentNameInput();
-                ViewCounterAgent vAgent = new ViewCounterAgent(model);
-                Presenter presenter = new Presenter(model, vAgent);
+                ViewCounterAgent view = new ViewCounterAgent(model);
+                Presenter presenter = new Presenter(model, view);
                 presenter.start();
 
         }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +21,6 @@ public class Model {
         CounterAgent cAgent = new CounterAgent(null, null);
         for (CounterAgent counterAgent : agentsList) {
             if (counterAgent.getName().equals(agentName)) {
-                // System.out.println(counterAgent);
                 cAgent = counterAgent;
                 return counterAgent;
             }
@@ -28,18 +28,44 @@ public class Model {
         return cAgent;
     }
 
-    public void addAgent(String agentName) {
-        agentsList.add(new CounterAgent(agentName));
-        System.out.printf("Контакт %s добавлен!\n", agentName);
+    public void findAgentNameInput() {
+        System.out.println("Введите имя контрагента.");
+        Scanner findScanner = new Scanner(System.in);
+        String agentName = findScanner.next();
+        CounterAgent cAgent = findAgent(agentName);
+        System.out.println(cAgent);
+        findScanner.close();
     }
 
-    public void removeAgent(String agentName) {
-        agentsList.remove(findAgent(agentName));
-        System.out.printf("Контакт %s удален!\n", agentName);
+    public void addAgent() {
+        System.out.println("Введите имя контрагента, которого необходимо добавить.");
+        Scanner addScanner = new Scanner(System.in);
+        String agentName = addScanner.next();
+        List<Contact<String>> contacts = new LinkedList<>();
+        if (!(agentsList.contains(findAgent(agentName)))) {
+            agentsList.add(new CounterAgent(agentName, contacts));
+            System.out.printf("Контакт %s добавлен!\n", agentName);
+        } else {
+            System.out.println("Контрагент с таким именем уже существует!");
+        }
+        addScanner.close();
+    }
+
+    public void removeAgent() {
+        System.out.println("Введите имя контрагента, которого необходимо удалить.");
+        Scanner removeScanner = new Scanner(System.in);
+        String agentName = removeScanner.next();
+        if (agentsList.contains(findAgent(agentName))) {
+            agentsList.remove(findAgent(agentName));
+            System.out.printf("Контакт %s удален!\n", agentName);
+        } else {
+            System.out.println("Такого контрагента нет!");
+        }
+        removeScanner.close();
     }
 
     public void addContact() {
-        System.out.println("Какому контакту необходимо добавить способ связи?");
+        System.out.println("Какому контрагенту необходимо добавить способ связи?");
         Scanner nameScan = new Scanner(System.in);
         String nameChoice = nameScan.nextLine();
         CounterAgent counterAgent = findAgent(nameChoice);
@@ -72,41 +98,57 @@ public class Model {
         nameScan.close();
     }
 
-    public void deleteContact() {
-        System.out.println("Какому контакту необходимо удалить способ связи?");
-        Scanner nameScan = new Scanner(System.in);
-        String nameChoice = nameScan.nextLine();
-        CounterAgent counterAgent = findAgent(nameChoice);
+    public void removeContact() {
+        System.out.println("Какому контрагенту необходимо удалить способ связи?");
+        Scanner nameScanRemove = new Scanner(System.in);
+        String nameChoiceRemove = nameScanRemove.next();
+        CounterAgent counterAgent = findAgent(nameChoiceRemove);
         System.out.println("Какой способ связи вы хотите удалить?");
         System.out.println("1 - Phone\n" + "2 - VK\n" + "3 - Telegram\n" + "4 - Address\n" + "5 - Email\n");
-        Scanner scannerContact = new Scanner(System.in);
-        int contactChoice = scannerContact.nextInt();
-        // if (counterAgent.getContacts().contains(contactChoice)) {
-
-        // }
-        System.out.println("Введите данные выбраного способа связи.");
-        Scanner scannerConData = new Scanner(System.in);
-        String contactData = scannerConData.next();
+        Scanner scannerContactRemove = new Scanner(System.in);
+        int contactChoice = scannerContactRemove.nextInt();
         switch (contactChoice) {
             case 1:
-                counterAgent.getContacts().remove(new PhoneNumber("Phone", contactData));
+                for (int i = 0; i < counterAgent.getContacts().size(); i++) {
+                    if (counterAgent.getContacts().get(i).getContactLabel().equals("Phone")) {
+                        counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                    }
+                }
                 break;
             case 2:
-                counterAgent.getContacts().remove(new VK("VK", contactData));
+                for (int i = 0; i < counterAgent.getContacts().size(); i++) {
+                    if (counterAgent.getContacts().get(i).getContactLabel().equals("VK")) {
+                        counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                    }
+                }
                 break;
             case 3:
-                counterAgent.getContacts().remove(new Telegram("Telegram", contactData));
+                for (int i = 0; i < counterAgent.getContacts().size(); i++) {
+                    if (counterAgent.getContacts().get(i).getContactLabel().equals("Telegram")) {
+                        counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                    }
+                }
                 break;
             case 4:
-                counterAgent.getContacts().remove(new Address("Address", contactData));
+                for (int i = 0; i < counterAgent.getContacts().size(); i++) {
+                    if (counterAgent.getContacts().get(i).getContactLabel().equals("Address")) {
+                        counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                    }
+                }
                 break;
             case 5:
-                counterAgent.getContacts().remove(new Email("Email", contactData));
+                for (int i = 0; i < counterAgent.getContacts().size(); i++) {
+                    if (counterAgent.getContacts().get(i).getContactLabel().equals("Email")) {
+                        counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                    }
+                }
+                break;
+            default:
+                System.out.println("Выбранного способа связи нет у данного контрагента!");
                 break;
         }
-        scannerConData.close();
-        scannerContact.close();
-        nameScan.close();
+        scannerContactRemove.close();
+        nameScanRemove.close();
     }
 
 }

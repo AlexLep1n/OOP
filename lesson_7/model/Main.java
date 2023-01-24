@@ -53,25 +53,6 @@ public class Main {
                 agentsList.add(Maks);
 
                 Model model = new Model(agentsList);
-                // model.show();
-                // System.out.println();
-                // model.addAgent();
-                // System.out.println(model.findAgent("Frank"));
-                // System.out.println(model.findAgent("Frank").getContacts().add(new
-                // PhoneNumber("Phone", "1125125")));
-                // model.show();
-                // System.out.println();
-                // model.removeAgent("Frank");
-                // model.show();
-                // System.out.println();
-                // System.out.println(model.findAgent("Maks"));
-                // CounterAgent cA = model.findAgent("Maks");
-                // model.show();
-                // model.addContact();
-                // System.out.println(model.findAgent("Frank"));
-                // model.removeContact();
-                // System.out.println(model.findAgent("Alex"));
-                // model.findAgentNameInput();
                 ViewCounterAgent view = new ViewCounterAgent(model);
                 Presenter presenter = new Presenter(model, view);
                 presenter.start();

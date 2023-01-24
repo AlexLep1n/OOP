@@ -33,8 +33,9 @@ public class Model {
         Scanner findScanner = new Scanner(System.in);
         String agentName = findScanner.next();
         CounterAgent cAgent = findAgent(agentName);
+        System.out.println("\nИскомый контрагент:");
         System.out.println(cAgent);
-        findScanner.close();
+        // findScanner.close();
     }
 
     public void addAgent() {
@@ -44,11 +45,11 @@ public class Model {
         List<Contact<String>> contacts = new LinkedList<>();
         if (!(agentsList.contains(findAgent(agentName)))) {
             agentsList.add(new CounterAgent(agentName, contacts));
-            System.out.printf("Контакт %s добавлен!\n", agentName);
+            System.out.printf("Контрагент %s добавлен!\n", agentName);
         } else {
             System.out.println("Контрагент с таким именем уже существует!");
         }
-        addScanner.close();
+        // addScanner.close();
     }
 
     public void removeAgent() {
@@ -57,11 +58,11 @@ public class Model {
         String agentName = removeScanner.next();
         if (agentsList.contains(findAgent(agentName))) {
             agentsList.remove(findAgent(agentName));
-            System.out.printf("Контакт %s удален!\n", agentName);
+            System.out.printf("Контрагент %s удален!\n", agentName);
         } else {
             System.out.println("Такого контрагента нет!");
         }
-        removeScanner.close();
+        // removeScanner.close();
     }
 
     public void addContact() {
@@ -79,23 +80,28 @@ public class Model {
         switch (contactChoice) {
             case 1:
                 counterAgent.getContacts().add(new PhoneNumber("Phone", contactData));
+                System.out.println("Phone добавлен контрагенту!");
                 break;
             case 2:
                 counterAgent.getContacts().add(new VK("VK", contactData));
+                System.out.println("VK добавлен контрагенту!");
                 break;
             case 3:
                 counterAgent.getContacts().add(new Telegram("Telegram", contactData));
+                System.out.println("Telegram добавлен контрагенту!");
                 break;
             case 4:
                 counterAgent.getContacts().add(new Address("Address", contactData));
+                System.out.println("Address добавлен контрагенту!");
                 break;
             case 5:
                 counterAgent.getContacts().add(new Email("Email", contactData));
+                System.out.println("Email добавлен контрагенту!");
                 break;
         }
-        scannerConData.close();
-        scannerContact.close();
-        nameScan.close();
+        // scannerConData.close();
+        // scannerContact.close();
+        // nameScan.close();
     }
 
     public void removeContact() {
@@ -112,6 +118,7 @@ public class Model {
                 for (int i = 0; i < counterAgent.getContacts().size(); i++) {
                     if (counterAgent.getContacts().get(i).getContactLabel().equals("Phone")) {
                         counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                        System.out.println("Phone удален у контрагента!");
                     }
                 }
                 break;
@@ -119,6 +126,7 @@ public class Model {
                 for (int i = 0; i < counterAgent.getContacts().size(); i++) {
                     if (counterAgent.getContacts().get(i).getContactLabel().equals("VK")) {
                         counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                        System.out.println("VK удален у контрагента!");
                     }
                 }
                 break;
@@ -126,6 +134,7 @@ public class Model {
                 for (int i = 0; i < counterAgent.getContacts().size(); i++) {
                     if (counterAgent.getContacts().get(i).getContactLabel().equals("Telegram")) {
                         counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                        System.out.println("Telegram удален у контрагента!");
                     }
                 }
                 break;
@@ -133,6 +142,7 @@ public class Model {
                 for (int i = 0; i < counterAgent.getContacts().size(); i++) {
                     if (counterAgent.getContacts().get(i).getContactLabel().equals("Address")) {
                         counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                        System.out.println("Address удален у контрагента!");
                     }
                 }
                 break;
@@ -140,6 +150,7 @@ public class Model {
                 for (int i = 0; i < counterAgent.getContacts().size(); i++) {
                     if (counterAgent.getContacts().get(i).getContactLabel().equals("Email")) {
                         counterAgent.getContacts().remove(counterAgent.getContacts().get(i));
+                        System.out.println("Email удален у контрагента!");
                     }
                 }
                 break;
@@ -147,8 +158,8 @@ public class Model {
                 System.out.println("Выбранного способа связи нет у данного контрагента!");
                 break;
         }
-        scannerContactRemove.close();
-        nameScanRemove.close();
+        // scannerContactRemove.close();
+        // nameScanRemove.close();
     }
 
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class MyList<T> {
+public class MyList<T> {
     List<T> myList = new ArrayList<>();
 
     public MyList(List<T> myList) {

@@ -2,12 +2,12 @@ package model;
 
 import java.util.List;
 
-public interface Contact<String> {
+public interface Contact<T> {
 
-    public String getContactLabel();
+    public T getContactLabel();
 
-    public List<String> getContactList();
+    public List<T> getContactList();
 
-    public String getContactData();
+    public T getContactData();
 
 }

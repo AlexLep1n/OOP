@@ -53,7 +53,7 @@ public class Main {
                 agentsList.add(Maks);
 
                 Model model = new Model(agentsList);
-                ViewCounterAgent view = new ViewCounterAgent(model);
+                ViewCounterAgent view = new ViewCounterAgent();
                 Presenter presenter = new Presenter(model, view);
                 presenter.start();
 
